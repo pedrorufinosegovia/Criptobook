@@ -1,5 +1,6 @@
+from flask import render_template
 from app import app
 
 @app.route("/")
 def index():
-    return "Portada de mi app web"
+    return render_template("inderx.html")
