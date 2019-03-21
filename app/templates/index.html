@@ -6,24 +6,35 @@
         <title>Criptobook</title>
     </head>
     <body>
+        <p><a href="./">Inico</a> | <a href="./nuevacompra">Nueva</a></p>
         <h1>Criptobook</h1>
         <p>listado de operaciones de compraventa de criptomonedas</p>
         <table border="1">
             <tr>
                 <th>Fecha</th>
                 <th>Hora</th>
-                <th>Descripcion</th>
+                <th>Descripcion</th>    
                 <th>Moneda</th>
                 <th>U. Compradas</th>
                 <th>Monedas</th>
                 <th>U. Pagadas</th>
             </tr>
-
+            {% for campo in campos %}
+            <tr>
+                <td>{{campo['fecha']}}</td>
+                <td>{{campo['hora']}}</td>
+                <td>{{campo['descripcion']}}</td>
+                <td>{{campo['monedacomprada']}}</td>
+                <td>{{campo['cantidadcomprada']}}</td>
+                <td>{{campo['monedapagada']}}</td>
+                <td>{{campo['cantidadpagada']}}</td>
+            </tr>
+            {% endfor %}
         </table>
 
         <form action="nuevacompra" method="GET">
             <input type="submit" value="Nueva">
         </form>
-
+        <p>Criptobook &copy;2019</p>
     </body>
 </html>

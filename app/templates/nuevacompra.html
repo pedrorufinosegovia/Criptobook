@@ -6,26 +6,29 @@
         <title>Nueva compra</title>
     </head>
     <body>
-        <form action= "nuevacompra" method="POST">
-            <input type="date" name="Fecha" id="Fecha">
-            <input type="time" name="Hora" id="Hora">
-            <input type="text" name="descripcion " id="descripcion">
-            <select name="Monedacomprada" id="monedacomprada">
+        <p><a href="./">Inicio</a> | <a href="./nuevacompra">Nuevacompra</a></p>
+        <h1>Comprar divisas</h1>
+        <p>Rellene los datos para realizar la compra</p>
+        <form action= "nuevacompra" method="post"><br>
+            Fecha: <input type="date" name="fecha" id="fecha"><br>
+            Hora: <input type="time" name="hora" id="hora"><br>
+            Concepto: <input type="text" name="descripcion" id="descripcion"><br>
+            M. comprada: <select name="monedacomprada" id="monedacomprada">
                 <option value="EUR">Euro</option>
                 <option value="BTC">Bitcoin</option>
                 <option value="ETH">Ethereum</option>   
                 <option value="LTC">Litecoin</option>
             </select>
-            <input type="number" name="Cantidadcomprada" id="Cantidadcomprada">
-            <select name="Monedapagada" id="monedapagada">
+            Cantidad: <input type="number" name="cantidadcomprada" id="cantidadcomprada" step="0.001"><br>
+            M. pagada:<select name="monedapagada" id="monedapagada">
                     <option value="EUR">Euro</option>
                     <option value="BTC">Bitcoin</option>
                     <option value="ETH">Ethereum</option>
                     <option value="LTC">Litecoin</option>
                 </select>
-            <input type="number" name="Cantidadpagada" id="Cantidadpagada">
+            Cantidad:<input type="number" name="cantidadpagada" id="cantidadpagada" step="0.001"><br>
             <input type="submit" value="Aceptar">
         </form>
-
+        <p>Criptobook &copy;2019</p>
     </body>
 </html>
