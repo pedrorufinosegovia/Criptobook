@@ -1,40 +1,34 @@
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Criptobook</title>
-    </head>
-    <body>
-        <p><a href="./">Inico</a> | <a href="./nuevacompra">Nueva</a></p>
+{% extends 'base.html' %}
+{%block title%} Criptobook {%endblock%}
+{% block body %}
         <h1>Criptobook</h1>
         <p>listado de operaciones de compraventa de criptomonedas</p>
-        <table border="1">
-            <tr>
-                <th>Fecha</th>
-                <th>Hora</th>
-                <th>Descripcion</th>    
-                <th>Moneda</th>
-                <th>U. Compradas</th>
-                <th>Monedas</th>
-                <th>U. Pagadas</th>
-            </tr>
-            {% for campo in campos %}
-            <tr>
-                <td>{{campo['fecha']}}</td>
-                <td>{{campo['hora']}}</td>
-                <td>{{campo['descripcion']}}</td>
-                <td>{{campo['monedacomprada']}}</td>
-                <td>{{campo['cantidadcomprada']}}</td>
-                <td>{{campo['monedapagada']}}</td>
-                <td>{{campo['cantidadpagada']}}</td>
-            </tr>
-            {% endfor %}
-        </table>
-
         <form action="nuevacompra" method="GET">
-            <input type="submit" value="Nueva">
+            <table border="1">
+                <tr>
+                    <th>Sel.</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Descripcion</th>    
+                    <th>Moneda</th>
+                    <th>U. Compradas</th>
+                    <th>Monedas</th>
+                    <th>U. Pagadas</th>
+                </tr>
+                {% for campo in campos %}
+                <tr>
+                    <td><input type="radio" name='ix' value="{{ loop.index -1}}"></td>
+                    <td>{{campo['fecha']}}</td>
+                    <td>{{campo['hora']}}</td>
+                    <td>{{campo['descripcion']}}</td>
+                    <td>{{campo['monedacomprada']}}</td>
+                    <td>{{campo['cantidadcomprada']}}</td>
+                    <td>{{campo['monedapagada']}}</td>
+                    <td>{{campo['cantidadpagada']}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <input type="submit" name="btnselected" value="Nueva">
+            <input type="submit" name="btnselected" value="Editar">
         </form>
-        <p>Criptobook &copy;2019</p>
-    </body>
-</html>
+{% endblock %}

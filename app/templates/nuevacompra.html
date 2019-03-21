@@ -1,12 +1,6 @@
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Nueva compra</title>
-    </head>
-    <body>
-        <p><a href="./">Inicio</a> | <a href="./nuevacompra">Nuevacompra</a></p>
+{% extends 'base.html' %}
+{% block title %}Nuevacompra{% endblock %}
+{% block body %}
         <h1>Comprar divisas</h1>
         <p>Rellene los datos para realizar la compra</p>
         <form action= "nuevacompra" method="post"><br>
@@ -29,6 +23,4 @@
             Cantidad:<input type="number" name="cantidadpagada" id="cantidadpagada" step="0.001"><br>
             <input type="submit" value="Aceptar">
         </form>
-        <p>Criptobook &copy;2019</p>
-    </body>
-</html>
+{% endblock %}
