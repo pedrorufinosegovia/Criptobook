@@ -3,24 +3,24 @@
 {% block body %}
         <h1>Comprar divisas</h1>
         <p>Rellene los datos para realizar la compra</p>
-        <form action= "nuevacompra" method="post"><br>
-            Fecha: <input type="date" name="fecha" id="fecha"><br>
-            Hora: <input type="time" name="hora" id="hora"><br>
-            Concepto: <input type="text" name="descripcion" id="descripcion"><br>
-            M. comprada: <select name="monedacomprada" id="monedacomprada">
+        <form class = "compra" action= "nuevacompra" method="post"><br>
+            <span class = "label"> Fecha: </span> <input type="date" name="fecha" id="fecha"><br>
+            <span class = "label"> Hora: </span> <input type="time" name="hora" id="hora"><br>
+            <span class = "label"> Descripcion: </span> <input type="text" name="descripcion" id="descripcion"><br>
+            <span class = "label"> M.Comprada: </span> <select name="monedacomprada" id="monedacomprada">
                 <option value="EUR">Euro</option>
                 <option value="BTC">Bitcoin</option>
                 <option value="ETH">Ethereum</option>   
                 <option value="LTC">Litecoin</option>
             </select>
-            Cantidad: <input type="number" name="cantidadcomprada" id="cantidadcomprada" step="0.001"><br>
-            M. pagada:<select name="monedapagada" id="monedapagada">
-                    <option value="EUR">Euro</option>
-                    <option value="BTC">Bitcoin</option>
-                    <option value="ETH">Ethereum</option>
-                    <option value="LTC">Litecoin</option>
-                </select>
-            Cantidad:<input type="number" name="cantidadpagada" id="cantidadpagada" step="0.001"><br>
+            <span class = "label"> Cantidad Comprada: </span> <input type="number" name="cantidadcomprada" id="cantidadcomprada" step="0.001"><br>
+            <span class = "label"> M.Pagada: </span><select name="monedapagada" id="monedapagada">
+                <option value="EUR">Euro</option>
+                <option value="BTC">Bitcoin</option>
+                <option value="ETH">Ethereum</option>
+                <option value="LTC">Litecoin</option>
+            </select>
+                <span class = "label"> Cantidad Pagada: </span><input type="number" name="cantidadpagada" id="cantidadpagada" step="0.001"><br>
             <input type="submit" value="Aceptar">
         </form>
 {% endblock %}

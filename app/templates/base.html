@@ -4,16 +4,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>{% block title%}{%endblock%}</title>
-        <style>
-            dody{
-                font-family: sans-serif
-            }
-        </style>
+        <link rel="stylesheet" href="../static/css/styles.css">
     </head>
     <body>
-        <p><a href="./">Inico</a> | <a href="./nuevacompra">Nueva</a></p>
+        <p class="menu portada"><a href="./">Inico</a> | <a href="./nuevacompra">Nueva</a></p>
         {% block body%}
         {%endblock%}
-        <p>Criptobook &copy;2019</p>
+        <p class="pie">Criptobook &copy;2019</p>
     </body>
 </html>
