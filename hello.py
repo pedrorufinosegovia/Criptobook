@@ -1,6 +1,5 @@
-from flask import Flask
-app = Flask(__name__)
+from flask import request
 
-@app.route("/")
-def hello_world():
-    return "Hola, Mundo"
+request.form = "23424"
+
+print(request.form)
