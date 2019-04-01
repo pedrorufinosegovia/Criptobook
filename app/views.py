@@ -37,12 +37,11 @@ def  modificacompra():
     numreg = 0
     while linea != "":  
         if numreg == registrosleccionado:
-             linea = "{},{},'{}',{},{},{},{}\n".format(request.form["fecha"],request.form["hora"],request.form["descripcion"],request.form["monedacomprada"],request.form["cantidadcomprada"],request.form["monedapagada"],request.form["cantidadpagada"])   
-        
+             linea = "{},{},'{}',{},{},{},{}\n".format(request.form["fecha"],request.form["hora"],request.form["descripcion"],request.form["monedacomprada"],request.form["cantidadcomprada"],request.form["monedapagada"],request.form["cantidadpagada"])
         newtransacciones.write(linea)
         linea = transacciones.readline()
         numreg += 1
-    
+
     transacciones.close()
     newtransacciones.close()
     os.remove(ficherotransacciones)
@@ -66,7 +65,6 @@ def nuevacompra():
                     camposdict = Makedict(registro)
                     camposdict["registroseleccionado"] = ix
                     return render_template("modicacompra.html", registro = camposdict)
-            return "movimiento no encontrado"
     else:
         transacciones = open(ficherotransacciones, "+a")
         nada = "{},{},'{}',{},{},{},{}\n".format(request.form["fecha"],request.form["hora"],request.form["descripcion"],request.form["monedacomprada"],request.form["cantidadcomprada"],request.form["monedapagada"],request.form["cantidadpagada"])
