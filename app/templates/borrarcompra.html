@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Borrarcompra{% endblock %}
+{% block body %}
+        <h1>¿estas seguro de que deseas borrar el registro?</h1>
+        <form action="borrarcompra" method="POST">
+            <input hidden type="text" name="ix" id="ix", value="{{ registro }}">
+            <input class = "button-primary" name="boton" type="submit" value="Aceptar">
+            <input class = "button-primary" name="boton" type="submit" value="Rechazar">
+        </form>     
+{% endblock %}

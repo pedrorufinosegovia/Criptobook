@@ -54,7 +54,7 @@ def nuevacompra():
     if request.method == "GET":
         if len(request.values) == 0 or request.values['btnselected'] == 'Nueva':
             return render_template("nuevacompra.html")
-        else:
+        elif request.values['btnselected'] == 'Editar':
             if request.values.get('ix') == None:
                 return redirect(url_for('index'))
             ix = int(request.values['ix'])
@@ -65,9 +65,41 @@ def nuevacompra():
                     camposdict = Makedict(registro)
                     camposdict["registroseleccionado"] = ix
                     return render_template("modicacompra.html", registro = camposdict)
+        else:
+            if request.values.get('ix') == None:
+                return redirect(url_for('index'))
+            numeroelegido = int(request.values['ix'])
+            return render_template("borrarcompra.html", registro = numeroelegido)
     else:
         transacciones = open(ficherotransacciones, "+a")
         nada = "{},{},'{}',{},{},{},{}\n".format(request.form["fecha"],request.form["hora"],request.form["descripcion"],request.form["monedacomprada"],request.form["cantidadcomprada"],request.form["monedapagada"],request.form["cantidadpagada"])
         transacciones.write(nada)
         transacciones.close()
         return redirect(url_for('index'))
+
+@app.route('/borrarcompra', methods=["POST"])
+def borrado():
+    if request.form['boton'] == "Rechazar":
+        return redirect(url_for('index'))
+    else:
+        transacciones = open(ficherotransacciones, "r")
+        newtransacciones = open(nuevoficherotransacciones, "w+")
+        registro = int(request.form['ix'])
+        linea = transacciones.readline()
+        numreg = 0
+        while linea != "":
+            if numreg == registro:
+                numreg += 1
+                linea = transacciones.readline()
+            else:
+                newtransacciones.write(linea)
+                numreg += 1
+                linea = transacciones.readline()
+        transacciones.close()
+        newtransacciones.close()
+        os.remove(ficherotransacciones)
+        os.rename(nuevoficherotransacciones, ficherotransacciones)
+        return redirect(url_for('index'))
+        
+        
+        
