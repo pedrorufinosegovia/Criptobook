@@ -1,0 +1,6 @@
+venv/
+.vscode/gitstç
+__pycache__/
+.vscode/
+app/static/css/normalize.css
+app/static/css/skeleton.css
